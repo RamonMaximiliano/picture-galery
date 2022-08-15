@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import {Add} from './components/Add/index'
+import {Single} from './components/Single/index'
 
 function App() {
   return (
     <>
-      ...
-
+      <Add/>
+      <Single/>
     </>
   );
 }
