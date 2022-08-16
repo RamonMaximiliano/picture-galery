@@ -1,20 +1,32 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
-import {Add} from './components/Add/index'
-import {Single} from './components/Single/index'
+import { Add } from './components/Add/index'
+import { Single } from './components/Single/index'
+import { Galery } from './components/Galery/index'
 
 function App() {
   return (
     <>
-      <Add/>
-      <Single/>
+      <div className="nav-bar">
+        <Link to="/" className="link-nav-bar">Main</Link>
+        <Link to="/Add" className="link-nav-bar">Add</Link>
+        <Link to="/Single" className="link-nav-bar">Single</Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<Galery />} />
+        <Route path="/Add" element={<Add />} />
+        <Route path="/Single" element={<Single />} />
+      </Routes>
+
+
+
+
     </>
   );
 }
 
 export default App;
-
-
 
 /* 
 

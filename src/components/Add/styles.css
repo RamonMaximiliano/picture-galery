@@ -1,0 +1,49 @@
+.main-add-div{
+    display:flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin:auto;
+    margin-top:50px;
+    padding-right:15px;
+    padding-left:15px;
+}
+
+.Description{
+    height: 100px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.picture{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.Add{
+    font-weight: bold;
+    margin:auto;
+    width:120px;
+    height: 40px;
+    background-color: rgb(8, 8, 65);
+    color:white;
+    font-size:15px;
+    border-style: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+
+.Add:hover{
+    background-color: rgb(8, 8, 95);
+}
+
+.picture{
+    background-color: rgb(155, 155, 155);
+    margin-bottom: 50px;
+}
+
+
+.Title{
+    margin-top:10px;
+    margin-bottom: 50px;
+}
