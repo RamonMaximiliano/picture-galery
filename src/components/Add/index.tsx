@@ -12,8 +12,12 @@ export const Add = () => {
     const [pict, setPicture] = useState<string>()
     const [title, setTitle] = useState<string>()
     const [description, setDescription] = useState<string>()
-    let LoadedPicture:LoadedPicture = {}
-
+    const [LoadedPicture, setLoadedPicture] = useState<LoadedPicture>({
+        title:'Waiting...',
+        description:'Waiting',
+        picture:'Waiting',
+        ID: 'Waiting',
+    })
 
 function createImage(event:any){
     const image = event.target;
@@ -46,18 +50,15 @@ console.log(crypto.randomUUID())
 
 
 function setNewItem(){
-    LoadedPicture = {
+    setLoadedPicture({
         title:title,
         description:description,
         picture:pict,
         ID: crypto.randomUUID(),
-    }
-    
-
-console.log(LoadedPicture)
-
+    })
 }
 
+console.log(LoadedPicture)
     return (
         
             <div className="main-add-div">
@@ -69,11 +70,16 @@ console.log(LoadedPicture)
                 <input type="button" value="Add picture" className="Add" onClick={setNewItem}/>
                 <p>Preview</p>
                 <div>
-{/*                     If pict state has something then it will show, otherwise: "Waiting for a picture"
- */}                    {!!pict ? <img src={LoadedPicture.picture} alt="Preview" />: "Waiting for a picture..."}
+                    <h2>Title:</h2>
+                    {LoadedPicture.title} 
+                    <h2>Description:</h2>
+                    {LoadedPicture.description}
+                    <h2>ID:</h2>
+                    {LoadedPicture.ID} 
+                    <h2>Picture:</h2>
+                    {!!LoadedPicture.picture ? <img src={LoadedPicture.picture} alt="Waiting..." />: "Waiting for a picture..."}
                 </div>
-            
-            </div>
+        </div>
      )
 }
 
