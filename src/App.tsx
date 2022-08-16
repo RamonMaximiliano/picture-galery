@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import { Add } from './components/Add/index'
@@ -6,6 +6,7 @@ import { Single } from './components/Single/index'
 import { Galery } from './components/Galery/index'
 
 function App() {
+
   return (
     <>
       <div className="nav-bar">
@@ -18,10 +19,6 @@ function App() {
         <Route path="/Add" element={<Add />} />
         <Route path="/Single" element={<Single />} />
       </Routes>
-
-
-
-
     </>
   );
 }
