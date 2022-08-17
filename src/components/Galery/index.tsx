@@ -10,7 +10,8 @@ type LoadedPicture = {
 }
 
 export const Galery = () => {
-    const { setPicturesArray, PicturesArray } = useContext(PictureContext)
+    const { PicturesArray } = useContext(PictureContext)
+    console.log(PicturesArray)
     return (
         <div className="pictures-div">
                 {

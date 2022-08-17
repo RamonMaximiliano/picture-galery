@@ -14,8 +14,61 @@ type LoadedPicture = {
 }
 
 function App() {
-  const [PicturesArray, setPicturesArray] = useState<LoadedPicture[]>([])
+  const [title, setTitle] = useState<string>()
+  const [description, setDescription] = useState<string>()
+  const [pict, setPicture] = useState<string>()
+  const [ID, setID] = useState<string>()
+  const [LoadedPicture, setLoadedPicture] = useState<LoadedPicture>({
+    title: 'Waiting...',
+    description: 'Waiting',
+    picture: 'Waiting',
+    ID: 'Waiting',
+})
+  const [PicturesArray, setPicturesArray] = useState<LoadedPicture[]>([]) 
 
+//UPDATE FINAL ARRAY  
+useEffect(()=>{
+   if(LoadedPicture.title == undefined || LoadedPicture.title == 'Waiting...' ){
+    setPicturesArray([])
+  } else { 
+      setPicturesArray([...PicturesArray, LoadedPicture]) 
+  }
+}, [LoadedPicture])
+ 
+
+//SET NEW ID FOR NEW ITEM
+useEffect(()=> {
+  setID(crypto.randomUUID())
+},[LoadedPicture])
+
+
+//SET NEW ITEM
+function setNewItem() {
+  if (title !== '' && title !== undefined && description !== '' && description !== undefined && pict !== '' && pict !== undefined) {
+      setLoadedPicture({
+          title: title,
+          description: description,
+          picture: pict,
+          ID: ID,
+      })
+      setPicture('')
+      setTitle('')
+      setDescription('')
+  } else {
+      window.alert("Please provide all the information!")
+  }
+}
+
+//CREATE IMAGE STRING
+  function createImage(event: any) {
+    const image = event.target;
+    const file = image.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file)
+    reader.onloadend = function () {
+        setPicture(reader?.result?.toString());
+    };
+}
 
   return (
     <>
@@ -24,7 +77,7 @@ function App() {
         <Link to="/Add" className="link-nav-bar">Add</Link>
         <Link to="/Single" className="link-nav-bar">Single</Link>
       </div>
-      <PictureContext.Provider value={{PicturesArray, setPicturesArray}}>
+      <PictureContext.Provider value={{setTitle, setDescription,setID,createImage, setPicture,LoadedPicture, setLoadedPicture,setNewItem,PicturesArray}}>
         <Routes>
           <Route path="/" element={<Galery />} />
           <Route path="/Add" element={<Add />} />
@@ -35,13 +88,14 @@ function App() {
   );
 }
 
-
-
 export default App;
 
 /* 
 
 TO DO:
+
+
+change ID for key prop on new item
 
 - Check about installing the uuid library, if it will be necessary or not (not installed yet)
 - Firebase version (not installed yet)

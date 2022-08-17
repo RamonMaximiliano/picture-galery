@@ -47,3 +47,28 @@
     margin-top:10px;
     margin-bottom: 50px;
 }
+
+
+.preview{
+    width:65px;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:10px;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+.preview-image{
+    max-width: 500px;
+    padding:10px;
+}
+
+.preview-image img{
+    max-width: 400px;
+    padding:10px;
+}
+
+.preview-image h3{
+    margin-top:15px;
+}
