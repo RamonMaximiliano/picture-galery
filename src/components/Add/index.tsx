@@ -1,5 +1,6 @@
 import './styles.css'
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import { PictureContext } from '../../Context/Context'
 
 type LoadedPicture = {
     title?:string,
@@ -19,6 +20,8 @@ export const Add = () => {
         ID: 'Waiting',
     })
 
+    const {setPicturesArray, PicturesArray} = useContext(PictureContext)
+
 function createImage(event:any){
     const image = event.target;
     const file = image.files[0];
@@ -29,8 +32,6 @@ function createImage(event:any){
     };
 }
 
-console.log(pict)
-console.log(crypto.randomUUID())
 
 /* 
 ABOUT THE ABOVE QUESTION MARKS:
@@ -48,7 +49,6 @@ console.log(crypto.randomUUID())
 
 */
 
-
 function setNewItem(){
     setLoadedPicture({
         title:title,
@@ -56,6 +56,9 @@ function setNewItem(){
         picture:pict,
         ID: crypto.randomUUID(),
     })
+
+    const PicturesArrayFull = [...PicturesArray, LoadedPicture]
+    setPicturesArray(PicturesArrayFull)
 }
 
 console.log(LoadedPicture)

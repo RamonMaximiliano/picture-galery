@@ -1,11 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import { Add } from './components/Add/index'
 import { Single } from './components/Single/index'
 import { Galery } from './components/Galery/index'
+import { PictureContext } from './Context/Context'
+
+type LoadedPicture = {
+  title?: string,
+  description?: string,
+  picture?: string,
+  ID?: string,
+}
 
 function App() {
+  const [PicturesArray, setPicturesArray] = useState<LoadedPicture[]>([])
+
 
   return (
     <>
@@ -14,14 +24,18 @@ function App() {
         <Link to="/Add" className="link-nav-bar">Add</Link>
         <Link to="/Single" className="link-nav-bar">Single</Link>
       </div>
-      <Routes>
-        <Route path="/" element={<Galery />} />
-        <Route path="/Add" element={<Add />} />
-        <Route path="/Single" element={<Single />} />
-      </Routes>
+      <PictureContext.Provider value={{PicturesArray, setPicturesArray}}>
+        <Routes>
+          <Route path="/" element={<Galery />} />
+          <Route path="/Add" element={<Add />} />
+          <Route path="/Single" element={<Single />} />
+        </Routes>
+      </PictureContext.Provider>
     </>
   );
 }
+
+
 
 export default App;
 
