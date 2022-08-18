@@ -12,7 +12,7 @@ type LoadedPicture = {
   picture?: string,
   ID?: string,
 }
-
+ 
 function App() {
   const [title, setTitle] = useState<string>()
   const [description, setDescription] = useState<string>()
@@ -81,7 +81,7 @@ function setNewItem() {
         <Routes>
           <Route path="/" element={<Galery />} />
           <Route path="/Add" element={<Add />} />
-          <Route path="/Single" element={<Single />} />
+          <Route path="/Single/:id" element={<Single />} />
         </Routes>
       </PictureContext.Provider>
       <div className="signature">Created by Ramon</div>
