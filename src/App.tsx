@@ -84,6 +84,7 @@ function setNewItem() {
           <Route path="/Single" element={<Single />} />
         </Routes>
       </PictureContext.Provider>
+      <div className="signature">Created by Ramon</div>
     </>
   );
 }

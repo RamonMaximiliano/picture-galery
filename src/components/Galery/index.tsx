@@ -14,17 +14,20 @@ export const Galery = () => {
     console.log(PicturesArray)
     return (
         <div className="pictures-div">
-                {
-                    !!PicturesArray ? PicturesArray.map((item: LoadedPicture) =>
-                        <div className="pictures-sub-div">
+            {
+                !!PicturesArray ? PicturesArray.map((item: LoadedPicture) =>
+                    <div className="pictures-sub-div">
+                        <div>
                             <h3>ID</h3>
                             <p>{item.ID}</p>
-                            <h3>title</h3>
+                            <h3>Title</h3>
                             <p>{item.title}</p>
                             <h3>Description</h3>
                             <p>{item.description}</p>
-                        </div>) : ''
-                }
+                        </div>
+                        <img src={item.picture} alt="Waiting..." className="image-div" />
+                    </div>) : ''
+            }
         </div>
     )
 }
