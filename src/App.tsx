@@ -75,7 +75,6 @@ function setNewItem() {
       <div className="nav-bar">
         <Link to="/" className="link-nav-bar">Main</Link>
         <Link to="/Add" className="link-nav-bar">Add</Link>
-        <Link to="/Single" className="link-nav-bar">Single</Link>
       </div>
       <PictureContext.Provider value={{setTitle, setDescription,setID,createImage, setPicture,LoadedPicture, setLoadedPicture,setNewItem,PicturesArray}}>
         <Routes>
@@ -93,31 +92,8 @@ export default App;
 
 /* 
 
-TO DO:
-
-
-change ID for key prop on new item
-
-- Check about installing the uuid library, if it will be necessary or not (not installed yet)
-- Firebase version (not installed yet)
-
-3 MAIN APP PAGES:
-- Home page which displays the pictures
-- Add page, to create a new picture structure with comments, title
-- Single page, the one which shows the picture in larger size with its comment details
-
-
-
-
-Books - 2:29: 
-https://www.youtube.com/watch?v=oT-feDPuJmk&list=PLvRPaExkZHFlFewlz71TJRheerCt4xc9K&index=6&ab_channel=VidaMRR-Dise%C3%B1oydesarrolloweb
-
-
-
-Boni - 8:10
-https://www.youtube.com/watch?v=ss4BXa-WfgI&ab_channel=BoniekyLacerda
-
-
+- Check for picture to be percentage as the page grows
+- Responsive in mobile
 
 
  */

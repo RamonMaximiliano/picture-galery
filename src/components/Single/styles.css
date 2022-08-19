@@ -1,0 +1,19 @@
+.fullPicture{
+    max-width:650px;
+    margin:auto;
+    margin-top:50px;
+    padding:10px;
+}
+
+
+.fullPicture-sub-div{
+    align-items: center;
+    display:flex;
+    word-wrap: break-word;
+    margin-bottom:5px;
+}
+
+
+.sub-div-title{
+    margin-right:10px;
+}
