@@ -94,6 +94,7 @@ export default App;
 
 - Check for picture to be percentage as the page grows
 - Responsive in mobile
+- Validate only loads picture files
 
 
  */
