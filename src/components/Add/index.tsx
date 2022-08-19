@@ -3,14 +3,14 @@ import { useContext } from 'react'
 import { PictureContext } from '../../Context/Context'
 
 export const Add = () => {
-    const {setTitle, setDescription, createImage, LoadedPicture, setNewItem } = useContext(PictureContext)
+    const {setTitle, setDescription, createImage, LoadedPicture, setNewItem,title,description,pict } = useContext(PictureContext)
 
     return (
         <div className="main-add-div">
             <h2>Title</h2>
-            <input type="text" name="Title" className="Title" onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" name="Title" className="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
             <h3>Comment</h3>
-            <input type="text" name="Description" className="Description" onChange={(e) => setDescription(e.target.value)} />
+            <input type="text" name="Description" className="Description" onChange={(e) => setDescription(e.target.value)} value={description}/>
             <input type="file" name="picture" className="picture" onChange={createImage} />
             <input type="button" value="Add picture" className="Add" onClick={setNewItem} />
             <p className="preview">Preview</p>

@@ -17,3 +17,8 @@
 .sub-div-title{
     margin-right:10px;
 }
+
+
+.fullPicture img{
+    max-width:100%;
+}
